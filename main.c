@@ -6,6 +6,7 @@ int main(){
     printf("1. Student Login\n2. Professor login\n3. Admin login\n4. Exit\n");
     scanf("%d",&selected_option);
 
+    
     switch (selected_option)
     {
     // case 1: student_dashboard(); break;
