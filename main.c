@@ -1,7 +1,4 @@
 #include<stdio.h>
-<<<<<<< HEAD
-#include<stdlib.h>
-=======
 #include "structures.h"
 
 int main(){
@@ -25,4 +22,3 @@ int main(){
 void printbye(){
     printf("Thank You for using ARMS.\n");
 }
->>>>>>> 058a5aec372ab25ff96305abee9c157bc25df872
