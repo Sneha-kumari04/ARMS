@@ -1,0 +1,10 @@
+2023001,Aarav Sharma,8.6,CSE,2
+2023002,Neha Verma,7.9,ECE,3
+2023003,Rohit Kumar,6.8,ME,1
+2023004,Priya Singh,9.1,CSE,4
+2023005,Ananya Gupta,8.3,IT,2
+2023006,Vikram Patel,7.2,CE,3
+2023007,Sneha Roy,9.4,CSE,1
+2023008,Karan Mehta,6.5,EEE,4
+2023009,Pooja Nair,8.8,IT,3
+2023010,Aditya Joshi,7.6,ME,2
