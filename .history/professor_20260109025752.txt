@@ -1,4 +1,4 @@
-P14401, Gopal Krishna, ITW, Associate Professor
+P14401, Gopal Krishna, ITW, Associate Professor , 10
 P14402, Dr. Pawan Kumar Mandal, Mathematics, Associate Professor
 P14403, Vijay Kishore, PPS, Assistant Professor
 P14404, Shashikhant Pal, Physics, Associate Professor
