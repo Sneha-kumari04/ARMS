@@ -7,3 +7,11 @@ void Professor_dashboard();
 void Admin_dashboard();
 void printbye();
 #endif
+
+//utils.c
+void printline();
+
+//student.c
+void view_student_subjects_sem();
+void view_student_attendance();
+void view_student_sgpa();
