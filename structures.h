@@ -12,6 +12,7 @@ void printbye();
 void printline();
 
 //student.c
+void view_student_profile();
 void view_student_subjects_sem();
 void view_student_attendance();
 void view_student_sgpa();
