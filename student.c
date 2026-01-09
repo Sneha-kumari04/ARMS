@@ -21,6 +21,11 @@ void student_dashboard(){
 void view_student_profile(){
     long long int registration_number,r;
     char name[100];
+    char branch[50];
+    char sem[50];
+    char percentage[50];
+    float sgpa;
+    float cgpa;
     printf("Enter Registration Number: ");
     scanf("%lld",&registration_number);
     int found = 0;
@@ -28,16 +33,22 @@ void view_student_profile(){
     fp = fopen("student.txt","r");
     if (fp == NULL){
         printf("File not found!!\n");
-        return; 
+        return;
     }
-    while(fscanf (fp , "%lld %s",&r,name)!= EOF) {
+    while(fscanf (fp , "%lld %99s %49s %49s %49s %f %f",&r,name,branch,sem,percentage,&sgpa,&cgpa) != EOF) {
         if( r == registration_number){
-            printf("Registration Number = %lld\nName = %s\n",r,name);
+            printf("Name = %s\n",name);
+            printf("Registration number = %lld\n",r);
+            printf("SGPA = %.2f\n",sgpa);
+            printf("CGPA = %.2f\n",cgpa);
+            printf("Percentage = %s\n",percentage);
+            printf("semester = %s\n",sem);
+            printf("Branch = %s\n",branch);
             found = 1;
             break;
         }
     }
-    if (found==0){
+    if (!found){
         printf("Not found!!\n");
     }
     fclose(fp);
