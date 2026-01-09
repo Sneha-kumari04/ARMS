@@ -15,7 +15,6 @@ void professor_dashboard()
     case 3: view_student(); break;
     case 4: update_student_attendance(); break;
     case 5: view_student_sgpa(); break;
-    case 6: view_student_analytics(); break;
     default:
     break;
 }

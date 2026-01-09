@@ -10,12 +10,11 @@ void professor_dashboard()
     scanf("%d",&selected_option);
     switch(selected_option)
     {
-    case 1: view_professor_profile(); break;
-    case 2: view_professor_subjects_sem(); break;
-    case 3: view_student(); break;
-    case 4: update_student_attendance(); break;
+    case 1: view_profesor_profile(); break;
+    case 2: view_profesor_subjects_sem(); break;
+    case 3: view_professor(); break;
+    case 4: view_student_attendance(); break;
     case 5: view_student_sgpa(); break;
-    case 6: view_student_analytics(); break;
     default:
     break;
 }
