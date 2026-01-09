@@ -34,7 +34,6 @@ void view_student_profile(){
         if( r == registration_number){
             printf("Registration Number = %lld\nName = %s\n",r,name);
             found = 1;
-            printf("byeeee");
             break;
         }
     }
