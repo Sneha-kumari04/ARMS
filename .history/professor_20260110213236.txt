@@ -1,0 +1,16 @@
+P14401 Gopal_Krishna ITW Associate_Professor
+P14402 Dr_Pawan_Kumar_Mandal Mathematics Associate_Professor
+P14403 Vijay_Kishore PPS Assistant_Professor
+P14404 Shashikant_Pal Physics Associate_Professor
+P14405 Pushpant_Kumar ELECTRONICS Associate_Professor
+P14406 Balmukund ELECTRONICS Assistant_Professor
+P14407 Abhishek_Kumar_Choudhary Physics Assistant_Professor
+
+
+P14401 ITW CS100113  1 CSE_AI
+P14402 MATHEMATICS CS100102 1 CSE_AI
+P14403 PPS CS100111 1 CSE_AI
+P14404 PHYSICS CS100110 1 CSE_AI
+P14405 ELECTRONICS CS100114 CSE_AI
+P14406 ELECTRONICS CS100114  1 CSE_AI
+P14407 PHYSICS CS100110  1 CSE_AI
