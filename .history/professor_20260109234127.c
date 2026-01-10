@@ -8,7 +8,7 @@ void professor_dashboard()
     printline();
     printf("Enter Index: ");
     scanf("%d", &selected_option);
-    
+    while (getchar() != '\n')
         ;
     switch (selected_option)
     {
