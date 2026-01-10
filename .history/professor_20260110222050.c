@@ -12,16 +12,14 @@ void professor_dashboard(void)
         printline();
         printf("Enter Index: ");
         scanf("%d", &selected_option);
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
+
         switch (selected_option)
         {
-        case 1:
-            view_professor_profile();
-            break;
-        case 2:
-            View_my_subjects_and_semester();
-            break;
-        case 3: view_my_student(); break;
+            case 1:view_professor_profile();break;
+            case 2:View_my_subjects_and_semester(); break;
+            //   case 3: view_my_student(); break;
             //   case 4: update_student_attendance(); break;
             //   case 5: update_student_SGPA(); break;
             //   case 6: view_student_analytics(); break;
@@ -38,7 +36,7 @@ void view_professor_profile(void)
     char professor_id[50];
     char id[50];
     char name[100];
-    char subject[50];
+    char branch[50];
     char designation[100];
     int found = 0;
     FILE *fp = fopen("professor.txt", "r");
@@ -51,13 +49,13 @@ void view_professor_profile(void)
     scanf("%49s", professor_id);
     while (getchar() != '\n');
 
-    while (fscanf(fp, "%49s %99s %49s %99s", id, name, subject, designation) == 4)
+    while (fscanf(fp, "%49s %99s %49s %99s", id, name, branch, designation) == 4)
     {
         if (strcmp(id, professor_id) == 0)
         {
             printf("Name        = %s\n", name);
             printf("Professor ID= %s\n", id);
-            printf("Subject     = %s\n", branch);
+            printf("Branch      = %s\n", branch);
             printf("Designation = %s\n", designation);
             found = 1;
             break;
@@ -70,17 +68,17 @@ void view_professor_profile(void)
     fclose(fp);
     return;
 }
-void View_my_subjects_and_semester(void)
+void  View_my_subjects_and_semester(void)
 {
-    char professor_id[100];
-    char id[50];
-    char subject[50];
-    char subject_code[100];
-    int sem;
-    char department[100];
-    int found = 0;
-    FILE *fp = fopen("professor_subjects.txt", "r");
-    if (fp == NULL)
+   char professor_id[100];
+   char id[50];
+   char subject[100];
+   char subject_code[100];
+   int  sem;
+   char department[100];
+   int  found = 0;
+   FILE *fp = fopen("professor_subjects.txt", "r");
+   if (fp == NULL)
     {
         printf("Error: file not found\n");
         return;
@@ -88,7 +86,7 @@ void View_my_subjects_and_semester(void)
     printf("Enter Professor ID: ");
     scanf("%99s", professor_id);
 
-    while (fscanf(fp, "%49s %49S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
+    while (fscanf(fp, "%49s %99S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
     {
         if (strcmp(id, professor_id) == 0)
         {
@@ -105,41 +103,5 @@ void View_my_subjects_and_semester(void)
         printf("\n Data not found\n");
     }
     fclose(fp);
-
-}
-void view_my_student(void)
-{
-    long long int registration_number, r;
-    char name[100];
-    char branch[50];
-    char sem[50];
-     printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
-    int found = 0;
-    FILE *fp;
-    fp = fopen("student.txt", "r");
-    if (fp == NULL)
-    {
-        printf("File not found!!\n");
-        return;
-    }
-    while (fscanf(fp, "%lld %99s %49s %49s ", &r, name, branch, sem) != EOF)
-    {
-        if (r == registration_number)
-        {
-            printf("Name = %s\n", name);
-            printf("Registration number = %lld\n", r);
-            printf("semester = %s\n", sem);
-            printf("Branch = %s\n", branch);
-            found = 1;
-            break;
-        }
-    }
-        if (!found)
-        {
-           printf("Not found!!\n");
-        }
-    fclose(fp);
     return;
 }
-

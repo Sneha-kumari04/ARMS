@@ -12,7 +12,9 @@ void professor_dashboard(void)
         printline();
         printf("Enter Index: ");
         scanf("%d", &selected_option);
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
+
         switch (selected_option)
         {
         case 1:
@@ -35,30 +37,32 @@ void professor_dashboard(void)
 }
 void view_professor_profile(void)
 {
-    char professor_id[50];
-    char id[50];
+    long long int registration_number, r;
     char name[100];
-    char subject[50];
-    char designation[100];
+    char branch[50];
+    char sem[50];
     int found = 0;
-    FILE *fp = fopen("professor.txt", "r");
+    FILE *fp = fopen("student.txt", "r");
     if (fp == NULL)
     {
         printf("Error: file not found\n");
         return;
     }
-    printf("Enter Professor ID: ");
-    scanf("%49s", professor_id);
+    printf("Enter Student Registration Number: ");
+    scanf("%lld", &registration_number);
     while (getchar() != '\n');
 
-    while (fscanf(fp, "%49s %99s %49s %99s", id, name, subject, designation) == 4)
+    while (fscanf(fp, "%lld %99s %49s %49s ", &r, name, branch, sem, percentage, &sgpa, &cgpa) != EOF)
     {
-        if (strcmp(id, professor_id) == 0)
+        if (r == registration_number)
         {
-            printf("Name        = %s\n", name);
-            printf("Professor ID= %s\n", id);
-            printf("Subject     = %s\n", branch);
-            printf("Designation = %s\n", designation);
+            printf("Name = %s\n", name);
+            printf("Registration number = %lld\n", r);
+            printf("SGPA = %.2f\n", sgpa);
+            printf("CGPA = %.2f\n", cgpa);
+            printf("Percentage = %s\n", percentage);
+            printf("semester = %s\n", sem);
+            printf("Branch = %s\n", branch);
             found = 1;
             break;
         }
@@ -74,7 +78,7 @@ void View_my_subjects_and_semester(void)
 {
     char professor_id[100];
     char id[50];
-    char subject[50];
+    char subject[100];
     char subject_code[100];
     int sem;
     char department[100];
@@ -88,7 +92,7 @@ void View_my_subjects_and_semester(void)
     printf("Enter Professor ID: ");
     scanf("%99s", professor_id);
 
-    while (fscanf(fp, "%49s %49S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
+    while (fscanf(fp, "%49s %99S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
     {
         if (strcmp(id, professor_id) == 0)
         {
@@ -105,41 +109,41 @@ void View_my_subjects_and_semester(void)
         printf("\n Data not found\n");
     }
     fclose(fp);
-
 }
 void view_my_student(void)
 {
-    long long int registration_number, r;
-    char name[100];
-    char branch[50];
-    char sem[50];
-     printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
+    char professor_id[100];
+    char id[50];
+    char subject[100];
+    char subject_code[100];
+    int sem;
+    char department[100];
     int found = 0;
-    FILE *fp;
-    fp = fopen("student.txt", "r");
+    FILE *fp = fopen("professor_subjects.txt", "r");
     if (fp == NULL)
     {
-        printf("File not found!!\n");
+        printf("Error: file not found\n");
         return;
     }
-    while (fscanf(fp, "%lld %99s %49s %49s ", &r, name, branch, sem) != EOF)
+    printf("Enter Professor ID: ");
+    scanf("%99s", professor_id);
+
+    while (fscanf(fp, "%49s %99S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
     {
-        if (r == registration_number)
+        if (strcmp(id, professor_id) == 0)
         {
-            printf("Name = %s\n", name);
-            printf("Registration number = %lld\n", r);
-            printf("semester = %s\n", sem);
-            printf("Branch = %s\n", branch);
+            printf("Subject Name = %s\n", subject);
+            printf("Subject Code = %s\n", subject_code);
+            printf("Sem          = %d\n", sem);
+            printf("Department   = %s\n", department);
             found = 1;
             break;
         }
     }
-        if (!found)
-        {
-           printf("Not found!!\n");
-        }
+    if (!found)
+    {
+        printf("\n Data not found\n");
+    }
     fclose(fp);
     return;
 }
-

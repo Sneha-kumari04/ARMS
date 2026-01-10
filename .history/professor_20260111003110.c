@@ -74,7 +74,7 @@ void View_my_subjects_and_semester(void)
 {
     char professor_id[100];
     char id[50];
-    char subject[50];
+    char subject[100];
     char subject_code[100];
     int sem;
     char department[100];
@@ -88,7 +88,7 @@ void View_my_subjects_and_semester(void)
     printf("Enter Professor ID: ");
     scanf("%99s", professor_id);
 
-    while (fscanf(fp, "%49s %49S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
+    while (fscanf(fp, "%49s %99S %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
     {
         if (strcmp(id, professor_id) == 0)
         {
