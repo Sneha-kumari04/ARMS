@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "structures.h"
-void Professor_dashboard()
+void professor_dashboard()
 {
     int selected_option;
     printline();
