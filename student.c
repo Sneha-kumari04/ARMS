@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 #include "structures.h"
 
 //student_dashboard() function defintion

@@ -7,7 +7,7 @@ void student_dashboard();
 void Professor_dashboard();
 void Admin_dashboard();
 void printbye();
-#endif
+
 
 //utils.c
 void printline();
@@ -19,3 +19,15 @@ void view_student_profile();
 void view_student_branch_sem();
 void view_student_attendance();
 void view_student_sgpa_cgpa();
+
+
+// professor.c
+void view_professor_profile(void);
+void view_my_subjects_and_semester(void);
+void view_my_student(void);
+void update_student_attendance(void);
+void update_student_SGPA(void);
+void view_student_analytics(void);
+void logout(void);
+
+#endif
