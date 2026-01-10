@@ -24,5 +24,3 @@ void View_my_subjects_and_semester();
 void view_my_student();
 void update_student_attendance();
 void update_student_SGPA();
-void view_student_analytics();
-void logout();

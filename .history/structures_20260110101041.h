@@ -26,3 +26,4 @@ void update_student_attendance();
 void update_student_SGPA();
 void view_student_analytics();
 void logout();
+#endif
