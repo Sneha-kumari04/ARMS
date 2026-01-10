@@ -2,8 +2,7 @@
 #include<stdlib.h>
 #include "structures.h"
 
-int main()
-{
+int main(){
     int selected_option;
     printline();
     printf("1. Student Login\n2. Professor login\n3. Admin login\n4. Exit\n");
@@ -22,11 +21,10 @@ int main()
         break;
     }
     
+    }
 }
 
-
 //function definition
-void printbye()
-{
+void printbye(){
     printf("Thank You for using ARMS.\n");
 }

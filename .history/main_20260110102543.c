@@ -26,7 +26,6 @@ int main()
 
 
 //function definition
-void printbye()
-{
+void printbye(){
     printf("Thank You for using ARMS.\n");
 }
