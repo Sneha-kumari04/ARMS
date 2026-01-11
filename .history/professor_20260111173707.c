@@ -13,8 +13,7 @@ void professor_dashboard(void)
         printf("Enter Index: ");
         scanf("%d", &selected_option);
         printline();
-        while (getchar() != '\n')
-            ;
+        while (getchar() != '\n');
         switch (selected_option)
         {
         case 1:
@@ -31,7 +30,7 @@ void professor_dashboard(void)
             //   case 6: view_student_analytics(); break;
         case 0:
             if (logout_to_main_menu())
-                return; // back to login
+                return;   // back to login
             break;
         default:
             printf("Invalid option\n");
@@ -56,8 +55,7 @@ void view_professor_profile(void)
     printf("Enter Professor ID: ");
     scanf("%49s", professor_id);
     printline();
-    while (getchar() != '\n')
-        ;
+    while (getchar() != '\n');
 
     while (fscanf(fp, "%49s %99s %49s %99s", id, name, subject, designation) == 4)
     {
@@ -65,7 +63,7 @@ void view_professor_profile(void)
         {
             printf("Name         = %s\n", name);
             printf("Professor ID = %s\n", id);
-            // printf("Subject     = %s\n", branch);
+           // printf("Subject     = %s\n", branch);
             printf("Designation  = %s\n", designation);
             found = 1;
             printline();
@@ -151,18 +149,26 @@ void view_my_student(void)
             break;
         }
     }
+<<<<<<< HEAD
     if (!found)
     {
         printf("Not found!!\n");
-        printline();
     }
     fclose(fp);
     return;
 }
-void update_student_attendance(void)
-{
-    // defining data types
-    long long int registration_number, r;
+=======
+        if (!found)
+        {
+           printf("Not found!!\n");
+           printline();
+        }
+    fclose(fp);
+    return;
+}
+void update_student_attendance(void){
+    //defining data types
+    long long int registration_number,r;
     char name[100];
     char branch[50];
     char sem[50];
@@ -170,22 +176,23 @@ void update_student_attendance(void)
     float sgpa;
     float cgpa;
 
-    // input of registration number
+    //input of registration number
     printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
+    scanf("%lld",&registration_number);
     printline();
     int found = 0;
 
-    // opening file as read mode
+    //opening file as read mode
     FILE *fp;
     FILE *temp = fopen("temp.txt", "w");
-    fp = fopen("student.txt", "r");
+    fp = fopen("student.txt","r");
 
-    // checking if file is there or not
-    if (fp == NULL)
-    {
+    //checking if file is there or not
+    if (fp == NULL){
         printf("File not found!!\n");
         printline();
         return;
     }
+    
 }
+>>>>>>> 1e2534ca01284ed4873e8de24145139249a95bc8

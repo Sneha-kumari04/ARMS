@@ -1,7 +1,0 @@
-P14401, Gopal Krishna, ITW, Associate Professor 
-P14402, Dr. Pawan Kumar Mandal, Mathematics, Associate Professor
-P14403, Vijay Kishore, PPS, Assistant Professor
-P14404, Shashikhant Pal, Physics, Associate Professor
-P14405, Pushpant Kumar, Electrical Engineering, Associate Professor
-P14406, Balmukund , Electrical Engineering, Assistant Professor
-P14407, Abhishek Kumar Choudhary, Physics, 
