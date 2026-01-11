@@ -25,7 +25,6 @@ void update_student_SGPA(void);
 void view_student_analytics(void);
 void logout(void);
 
-//admin.c
 
 
 #endif

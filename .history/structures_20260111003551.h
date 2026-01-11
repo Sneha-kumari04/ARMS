@@ -27,5 +27,4 @@ void logout(void);
 
 //admin.c
 
-
 #endif

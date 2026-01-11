@@ -61,7 +61,7 @@ void view_professor_profile(void)
         {
             printf("Name        = %s\n", name);
             printf("Professor ID= %s\n", id);
-            printf("Subject     = %s\n", subject);
+            printf("Subject     = %s\n", branch);
             printf("Designation = %s\n", designation);
             found = 1;
             break;
