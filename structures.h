@@ -2,12 +2,10 @@
 #define STRUCTURE_H
 
 //main.c
-void main_menu();
 void student_dashboard();
 void professor_dashboard();
 void Admin_dashboard();
 void printbye();
-
 
 //utils.c
 void printline();
@@ -29,5 +27,7 @@ void update_student_attendance(void);
 void update_student_SGPA(void);
 void view_student_analytics(void);
 void logout(void);
+
+// admin.c
 
 #endif

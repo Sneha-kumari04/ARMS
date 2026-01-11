@@ -156,3 +156,32 @@ void view_my_student(void)
     fclose(fp);
     return;
 }
+void update_student_attendance(void){
+    //defining data types
+    long long int registration_number,r;
+    char name[100];
+    char branch[50];
+    char sem[50];
+    char attendance[50];
+    float sgpa;
+    float cgpa;
+
+    //input of registration number
+    printf("Enter Registration Number: ");
+    scanf("%lld",&registration_number);
+    printline();
+    int found = 0;
+
+    //opening file as read mode
+    FILE *fp;
+    FILE *temp = fopen("temp.txt", "w");
+    fp = fopen("student.txt","r");
+
+    //checking if file is there or not
+    if (fp == NULL){
+        printf("File not found!!\n");
+        printline();
+        return;
+    }
+    
+}
