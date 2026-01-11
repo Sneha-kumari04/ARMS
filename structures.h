@@ -4,7 +4,7 @@
 //main.c
 void main_menu();
 void student_dashboard();
-void Professor_dashboard();
+void professor_dashboard();
 void Admin_dashboard();
 void printbye();
 

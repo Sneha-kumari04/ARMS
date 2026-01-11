@@ -12,7 +12,7 @@ int main(void)
         printf("1. Student Login\n");
         printf("2. Professor Login\n");
         printf("3. Admin Login\n");
-        printf("4. Exit\n");
+        printf("0. Exit\n");
         printline();
 
         printf("Enter Index: ");
@@ -31,7 +31,7 @@ int main(void)
         case 3:
             Admin_dashboard();
             break;
-        case 4:
+        case 0:
             printbye();
             exit(0);
         default:
@@ -43,6 +43,7 @@ int main(void)
 // function definition
 void printbye(void)
 {
+    printline();
     printf("Thank You for using ARMS.\n");
     printline();
     return;
