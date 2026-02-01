@@ -29,7 +29,7 @@ int main(void)
             professor_dashboard();
             break;
         case 3:
-            Admin_dashboard();
+            admin_dashboard();
             break;
         case 0:
             printbye();

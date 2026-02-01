@@ -183,5 +183,4 @@ void update_student_attendance(void){
         printline();
         return;
     }
-    
 }

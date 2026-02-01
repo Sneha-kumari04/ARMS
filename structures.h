@@ -4,13 +4,9 @@
 //main.c
 void student_dashboard();
 void professor_dashboard();
-void Admin_dashboard();
+void admin_dashboard();
 void printbye();
 
-//utils.c
-void printline();
-void logout_to_dashboard();
-int logout_to_main_menu();
 
 //student.c
 void view_student_profile();
@@ -29,5 +25,16 @@ void view_student_analytics(void);
 void logout(void);
 
 // admin.c
+void view_admin_profile();
+void student_management();
+void professor_management();
+void academic_records_control();
+void analytics_reports();
+void system_settings();
 
+
+//utils.c
+void printline();
+void logout_to_dashboard();
+int logout_to_main_menu();
 #endif
