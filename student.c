@@ -39,10 +39,11 @@ void student_dashboard()
 }
 
 // function definition
+//view student profile
 void view_student_profile()
 {
     // defining data types
-    long long int registration_number, r;
+    long long int r;
     char name[100];
     char branch[50];
     char sem[50];
@@ -50,15 +51,11 @@ void view_student_profile()
     float sgpa;
     float cgpa;
 
-    // input of registration number
-    printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
-    printline();
     int found = 0;
 
     // opening file as read mode
     FILE *fp;
-    fp = fopen("student.txt", "r");
+    fp = fopen("data/student.txt", "r");
 
     // checking if file is there or not
     if (fp == NULL)
@@ -71,7 +68,7 @@ void view_student_profile()
     // serching and printing data of user
     while (fscanf(fp, "%lld %99s %49s %49s %49s %f %f", &r, name, branch, sem, attendance, &sgpa, &cgpa) == 7)
     {
-        if (r == registration_number)
+        if (r == input_registration_number)
         {
             printf("Name = %s\n", name);
             printf("Registration number = %lld\n", r);
@@ -102,7 +99,7 @@ void view_student_profile()
 void view_student_branch_sem()
 {
     // defining data types
-    long long int registration_number, r;
+    long long int r;
     char name[100];
     char branch[50];
     char sem[50];
@@ -110,15 +107,11 @@ void view_student_branch_sem()
     float sgpa;
     float cgpa;
 
-    // input of registration number
-    printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
-    printline();
     int found = 0;
 
     // opening file as read mode
     FILE *fp;
-    fp = fopen("student.txt", "r");
+    fp = fopen("data/student.txt", "r");
 
     // checking if file is there or not
     if (fp == NULL)
@@ -131,7 +124,7 @@ void view_student_branch_sem()
     // serching and printing data of user
     while (fscanf(fp, "%lld %99s %49s %49s %49s %f %f", &r, name, branch, sem, attendance, &sgpa, &cgpa) == 7)
     {
-        if (r == registration_number)
+        if (r == input_registration_number)
         {
             printf("Semester = %s\n", sem);
             printf("Branch = %s\n", branch);
@@ -157,23 +150,18 @@ void view_student_branch_sem()
 void view_student_attendance()
 {
     // defining data types
-    long long int registration_number, r;
+    long long int r;
     char name[100];
     char branch[50];
     char sem[50];
     char attendance[50];
     float sgpa;
     float cgpa;
-
-    // input of registration number
-    printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
-    printline();
     int found = 0;
 
     // opening file as read mode
     FILE *fp;
-    fp = fopen("student.txt", "r");
+    fp = fopen("data/student.txt", "r");
 
     // checking if file is there or not
     if (fp == NULL)
@@ -186,7 +174,7 @@ void view_student_attendance()
     // serching and printing data of user
     while (fscanf(fp, "%lld %99s %49s %49s %49s %f %f", &r, name, branch, sem, attendance, &sgpa, &cgpa) == 7)
     {
-        if (r == registration_number)
+        if (r == input_registration_number)
         {
             printf("Attendance = %s\n", attendance);
             printline();
@@ -211,7 +199,7 @@ void view_student_attendance()
 void view_student_sgpa_cgpa()
 {
     // defining data types
-    long long int registration_number, r;
+    long long int r;
     char name[100];
     char branch[50];
     char sem[50];
@@ -219,15 +207,11 @@ void view_student_sgpa_cgpa()
     float sgpa;
     float cgpa;
 
-    // input of registration number
-    printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
-    printline();
     int found = 0;
 
     // opening file as read mode
     FILE *fp;
-    fp = fopen("student.txt", "r");
+    fp = fopen("data/student.txt", "r");
 
     // checking if file is there or not
     if (fp == NULL)
@@ -240,7 +224,7 @@ void view_student_sgpa_cgpa()
     // serching and printing data of user
     while (fscanf(fp, "%lld %99s %49s %49s %49s %f %f", &r, name, branch, sem, attendance, &sgpa, &cgpa) == 7)
     {
-        if (r == registration_number)
+        if (r == input_registration_number)
         {
             printf("SGPA = %.2f\n", sgpa);
             printf("CGPA = %.2f\n", cgpa);

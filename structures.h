@@ -7,10 +7,11 @@ void professor_dashboard();
 void admin_dashboard();
 void printbye();
 
-// // utils.c
-// void printline();
-// void logout_to_dashboard();
-// int logout_to_main_menu();
+// login.c
+int student_login();
+int professor_login();
+int admin_login();
+
 
 // student.c
 void view_student_profile();
@@ -41,3 +42,6 @@ void printline();
 void logout_to_dashboard();
 int logout_to_main_menu();
 #endif
+
+//global used data variables
+extern long long int input_registration_number;
