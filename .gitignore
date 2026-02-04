@@ -1,0 +1,13 @@
+# Compiled binaries (Windows)
+*.exe
+
+# Object files
+*.o
+
+# VS Code junk
+.history/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
