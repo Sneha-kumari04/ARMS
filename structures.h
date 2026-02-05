@@ -24,13 +24,7 @@ void view_student_sgpa_cgpa();
 void view_professor_profile(void);
 void view_my_subjects_and_semester(void);
 void view_my_student(void);
-void update_student_attendance(void);
-void update_student_SGPA(void);
 void view_student_analytics(void);
-void logout(void);
-
-
-
 
 //utils.c
 void printline();
