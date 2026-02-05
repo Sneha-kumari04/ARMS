@@ -133,7 +133,7 @@ int professor_login(){
     //Read login credentials
     printf("             Login\n");
     printline();
-    printf("Enter Admin ID: ");
+    printf("Enter Professor ID: ");
     scanf("%s",input_professor_id);
     printf("Enter password: ");
     scanf("%s",input_professor_password);

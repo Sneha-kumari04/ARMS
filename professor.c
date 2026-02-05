@@ -165,7 +165,7 @@ void view_my_student(void)
 } 
 
 
-void View_student_analytics(void)
+void view_student_analytics(void)
 {
     // define data types
     long long int registration_number, r;
