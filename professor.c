@@ -119,7 +119,7 @@ void view_my_subjects_and_semester(void)
     }
     fclose(fp);
 }
-void view_my_student(void)
+void view_student_analytics(void)
 {
     long long int registration_number, r;
     char name[100];
@@ -165,7 +165,37 @@ void View_student_analytics(void)
     char name[100];
     char branch[50];
     char sem[50];
-    
+    float sgpa;
+    int total_students = 0;
+    float sgpa_sum = 0.0;
+    float average_sgpa = 0.0;
+    FILE *fp;
+    fp = fopen("data/student.txt", "r"); // file open
+    if (fp == NULL)
+    {
+        printf("File not found!!\n");
+        printline();
+        return;
+    }
+    while(fscanf(fp, "lld %99s %49s %49s %f", &r, name, branch, sem, sgpa) == 5)
+    {
+        total_students++; //counting total students
+        sgpa_sum += sgpa; // sum of sgpa
+    }
+    if(total_students > 0)
+    {
+        average_sgpa = sgpa_sum / total_students; // average of sgpa
+    }
+    printline();
+    printf("Total Students : %d\n", total_students);
+    printf("Average SGPA   : %.2f\n", average_sgpa);
+    printline();
+
+    // closing file
+    fclose(fp);
+
+    // logout to professor dashboard
+    logout_to_dashboard();    
 
 }
 
