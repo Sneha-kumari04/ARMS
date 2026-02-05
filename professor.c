@@ -8,7 +8,7 @@ void professor_dashboard(void)
     while (1)
     {
         printline();
-        printf("PROFESSOR DASHBOARD\n 1. View My Profile\n 2. View My Subjects & Semester\n 3. View My Student\n  5. View Student Analytics\n 0. Logout\n");
+        printf("PROFESSOR DASHBOARD\n 1. View My Profile\n 2. View My Subjects & Semester\n 3. View My Student\n  4. View Student Analytics\n 0. Logout\n");
         printline();
         printf("Enter Index: ");
         scanf("%d", &selected_option);
@@ -26,8 +26,9 @@ void professor_dashboard(void)
         case 3:
             view_my_student();
             break;
-        case 4 : view_student_analytics(); 
-        break;
+        case 4: 
+             view_student_analytics();
+            break;
         case 0:
             if (logout_to_main_menu())
                 return; // back to login
