@@ -14,6 +14,7 @@ int admin_login();
 
 
 // student.c
+void greet_student();
 void view_student_profile();
 void view_student_branch_sem();
 void view_student_attendance();
@@ -28,6 +29,21 @@ void update_student_SGPA(void);
 void view_student_analytics(void);
 void logout(void);
 
+
+
+
+//utils.c
+void printline();
+void logout_to_dashboard();
+int logout_to_main_menu();
+int back();
+#endif
+
+//global used data variables
+extern long long int input_registration_number;
+extern char input_admin_id[50];
+
+
 // admin.c
 void view_admin_profile();
 void student_management();
@@ -36,12 +52,15 @@ void academic_records_control();
 void analytics_reports();
 void system_settings();
 
+//student_management
+void add_new_student();
+void view_all_students();
+void view_all_students();
+void search_student();
 
-//utils.c
-void printline();
-void logout_to_dashboard();
-int logout_to_main_menu();
-#endif
+//professor management
+void add_new_professor();
 
-//global used data variables
-extern long long int input_registration_number;
+//admin management
+void view_system_summary();
+void reset_system_data();

@@ -5,6 +5,7 @@
 void student_dashboard()
 {
     int selected_option;
+    greet_student();
     while (1)
     {
         printline();
@@ -38,7 +39,58 @@ void student_dashboard()
     }
 }
 
-// function definition
+
+//greet student
+void greet_student()
+{
+    // defining data types
+    long long int r;
+    char name[100];
+    char branch[50];
+    char sem[50];
+    char attendance[50];
+    float sgpa;
+    float cgpa;
+
+    int found = 0;
+
+    // opening file as read mode
+    FILE *fp;
+    fp = fopen("data/student.txt", "r");
+
+    // checking if file is there or not
+    if (fp == NULL)
+    {
+        printf("File not found!!\n");
+        printline();
+        return;
+    }
+
+    // serching and printing data of user
+    while (fscanf(fp, "%lld %99s %49s %49s %49s %f %f", &r, name, branch, sem, attendance, &sgpa, &cgpa) == 7)
+    {
+        if (r == input_registration_number)
+        {
+            printf("Hello %s\n",name);
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        printf("Not found!!\n");
+        printline();
+    }
+
+    // closing file
+    fclose(fp);
+
+    return;
+}
+
+
+
 //view student profile
 void view_student_profile()
 {

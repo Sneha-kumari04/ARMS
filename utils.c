@@ -13,7 +13,6 @@ void logout_to_dashboard(){
     scanf(" %d",&logout_input);
     printline();
     if (logout_input == 0){
-        printf("Logged out!!\n");
         return;
     }
     else{
@@ -51,4 +50,20 @@ void printbye(void)
     printf("Thank You for using ARMS.\n");
     printline();
     return;
+}
+
+//back
+int back(){
+    int back_input;
+    printf("Enter 0 to exit: ");
+    scanf(" %d",&back_input);
+    printline();
+    if (back_input == 0){
+        return 1;
+    }
+    else{
+        printf("Invalid input!!");
+        return 0;
+    }
+    
 }

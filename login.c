@@ -4,9 +4,10 @@
 
 
 //admin login
+char input_admin_id[50];
 int admin_login(){
     //defining data types
-    char input_admin_id[50];
+    
     char input_admin_password[50];
     char original_admin_id[50];
     char original_admin_password[50];
