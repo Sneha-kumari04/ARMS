@@ -80,6 +80,8 @@ void view_professor_profile(void)
     fclose(fp);
     return;
 }
+
+
 void view_my_subjects_and_semester(void)
 {
     char professor_id[100];
@@ -120,7 +122,9 @@ void view_my_subjects_and_semester(void)
     }
     fclose(fp);
 }
-void view_student_analytics(void)
+
+
+void view_my_student(void)
 {
     long long int registration_number, r;
     char name[100];
@@ -159,6 +163,8 @@ void view_student_analytics(void)
     fclose(fp);
     return;
 } 
+
+
 void View_student_analytics(void)
 {
     // define data types
@@ -170,8 +176,10 @@ void View_student_analytics(void)
     int total_students = 0;
     float sgpa_sum = 0.0;
     float average_sgpa = 0.0;
+
     FILE *fp;
     fp = fopen("data/student.txt", "r"); // file open
+
     if (fp == NULL)
     {
         printf("File not found!!\n");
@@ -183,6 +191,7 @@ void View_student_analytics(void)
         total_students++; //counting total students
         sgpa_sum += sgpa; // sum of sgpa
     }
+
     if(total_students > 0)
     {
         average_sgpa = sgpa_sum / total_students; // average of sgpa
