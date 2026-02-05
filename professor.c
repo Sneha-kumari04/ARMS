@@ -45,7 +45,7 @@ void view_professor_profile(void)
     char subject[50];
     char designation[100];
     int found = 0;
-    FILE *fp = fopen("professor.txt", "r");
+    FILE *fp = fopen("data/professor.txt", "r");
     if (fp == NULL)
     {
         printf("Error: file not found\n");
@@ -88,7 +88,7 @@ void view_my_subjects_and_semester(void)
     int sem;
     char department[100];
     int found = 0;
-    FILE *fp = fopen("professor_subjects.txt", "r");
+    FILE *fp = fopen("data/professor_subjects.txt", "r");
     if (fp == NULL)
     {
         printf("Error: file not found\n");
@@ -130,7 +130,7 @@ void view_my_student(void)
     printline();
     int found = 0;
     FILE *fp;
-    fp = fopen("student.txt", "r");
+    fp = fopen("data/student.txt", "r");
     if (fp == NULL)
     {
         printf("File not found!!\n");
@@ -157,7 +157,7 @@ void view_my_student(void)
     }
     fclose(fp);
     return;
-}
+} 
 void View_student_analytics(void)
 {
     // define data types
