@@ -8,7 +8,7 @@ void professor_dashboard(void)
     while (1)
     {
         printline();
-        printf("PROFESSOR DASHBOARD\n 1. View My Profile\n 2. View My Subjects & Semester\n 3. View My Student\n 4. Update Student Attendance\n 5. Update Student SGPA\n 6. View Student Analytics\n 0. Logout\n");
+        printf("PROFESSOR DASHBOARD\n 1. View My Profile\n 2. View My Subjects & Semester\n 3. View My Student\n  5. View Student Analytics\n 0. Logout\n");
         printline();
         printf("Enter Index: ");
         scanf("%d", &selected_option);
@@ -26,9 +26,8 @@ void professor_dashboard(void)
         case 3:
             view_my_student();
             break;
-            //   case 4: update_student_attendance(); break;
-            //   case 5: update_student_SGPA(); break;
-            //   case 6: view_student_analytics(); break;
+        case 4 : view_student_analytics(); 
+        break;
         case 0:
             if (logout_to_main_menu())
                 return; // back to login
@@ -159,33 +158,14 @@ void view_my_student(void)
     fclose(fp);
     return;
 }
-void update_student_attendance(void)
+void View_student_analytics(void)
 {
-    // defining data types
+    // define data types
     long long int registration_number, r;
     char name[100];
     char branch[50];
     char sem[50];
-    char attendance[50];
-    float sgpa;
-    float cgpa;
+    
 
-    // input of registration number
-    printf("Enter Registration Number: ");
-    scanf("%lld", &registration_number);
-    printline();
-    int found = 0;
-
-    // opening file as read mode
-    FILE *fp;
-    FILE *temp = fopen("temp.txt", "w");
-    fp = fopen("student.txt", "r");
-
-    // checking if file is there or not
-    if (fp == NULL)
-    {
-        printf("File not found!!\n");
-        printline();
-        return;
-    }
 }
+
