@@ -1,7 +1,9 @@
 #include<stdio.h>
 
+
+//printline
 void printline(){
-    printf("---------------------------\n");
+    printf("-------------------------------\n");
 }
 
 //logout to dashboard
@@ -11,7 +13,6 @@ void logout_to_dashboard(){
     scanf(" %d",&logout_input);
     printline();
     if (logout_input == 0){
-        printf("Logged out!!\n");
         return;
     }
     else{
@@ -39,4 +40,30 @@ int logout_to_main_menu(){
         printf("Invalid input!!!");
         return 0;
     }
+}
+
+
+// bye message print
+void printbye(void)
+{
+    printline();
+    printf("Thank You for using ARMS.\n");
+    printline();
+    return;
+}
+
+//back
+int back(){
+    int back_input;
+    printf("Enter 0 to exit: ");
+    scanf(" %d",&back_input);
+    printline();
+    if (back_input == 0){
+        return 1;
+    }
+    else{
+        printf("Invalid input!!");
+        return 0;
+    }
+    
 }

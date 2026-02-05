@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "structures.h"
 
-int main(void)
-{
-    int selected_option;
 
+int main(void){
+
+    int selected_option = 3,is_login = 0;;
     while (1)
     {
         printline();
@@ -23,13 +23,22 @@ int main(void)
         switch (selected_option)
         {
         case 1:
-            student_dashboard();
+            is_login = student_login();
+            if(is_login == 1){
+                student_dashboard();
+            }
             break;
         case 2:
-            professor_dashboard();
+            is_login = professor_login();
+            if(is_login == 1){
+                professor_dashboard();
+            }
             break;
         case 3:
-            admin_dashboard();
+            is_login = admin_login();
+            if(is_login == 1){
+                admin_dashboard();
+            }
             break;
         case 0:
             printbye();
@@ -40,11 +49,4 @@ int main(void)
     }
 }
 
-// function definition
-void printbye(void)
-{
-    printline();
-    printf("Thank You for using ARMS.\n");
-    printline();
-    return;
-}
+
