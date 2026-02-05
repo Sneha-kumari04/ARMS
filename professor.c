@@ -8,7 +8,7 @@ void professor_dashboard(void)
     while (1)
     {
         printline();
-        printf("PROFESSOR DASHBOARD\n 1. View My Profile\n 2. View My Subjects & Semester\n 3. View My Student\n  4. View Student Analytics\n 0. Logout\n");
+        printf("PROFESSOR DASHBOARD\n 1. View My Profile\n 2. View My Subjects & Semester\n 3. View My Student\n 4. View Student Analytics\n 0. Logout\n");
         printline();
         printf("Enter Index: ");
         scanf("%d", &selected_option);
@@ -27,7 +27,7 @@ void professor_dashboard(void)
             view_my_student();
             break;
         case 4: 
-             view_student_analytics();
+            view_student_analytics();
             break;
         case 0:
             if (logout_to_main_menu())
@@ -172,7 +172,8 @@ void view_student_analytics(void)
     char name[100];
     char branch[50];
     char sem[50];
-    float sgpa;
+    char attendance[50];
+    float sgpa, cgpa;
     int total_students = 0;
     float sgpa_sum = 0.0;
     float average_sgpa = 0.0;
@@ -186,7 +187,7 @@ void view_student_analytics(void)
         printline();
         return;
     }
-    while(fscanf(fp, "lld %99s %49s %49s %f", &r, name, branch, sem, sgpa) == 5)
+    while(fscanf(fp, "%lld %99s %49s %49s %49s %f %f", &r, name, branch, sem, attendance, &sgpa, &cgpa) == 7)
     {
         total_students++; //counting total students
         sgpa_sum += sgpa; // sum of sgpa
