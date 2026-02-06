@@ -16,7 +16,7 @@ void logout_to_dashboard(){
         return;
     }
     else{
-        printf("Invalid input!!");
+        printf("Invalid input!!\n");
         
     }
 }
@@ -37,7 +37,7 @@ int logout_to_main_menu(){
         return 0;
     }
     else{
-        printf("Invalid input!!!");
+        printf("Invalid input!!!\n");
         return 0;
     }
 }
@@ -62,7 +62,8 @@ int back(){
         return 1;
     }
     else{
-        printf("Invalid input!!");
+        printf("Invalid input!!\n");
+        printline();
         return 0;
     }
     

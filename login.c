@@ -47,11 +47,9 @@ int admin_login(){
 
     if(!id_matched){
         printf("Invalid Admin ID..!!\n");
-        printline();
     }
     else if(!is_login){
         printf("Invalid password..!!\n");
-        printline();
     }
     else{
         printf("Login successful..!!\n");
@@ -75,7 +73,6 @@ int student_login(){
 
     //Read login credentials
     printf("             Login\n");
-    printline();
     printf("Enter registration number: ");
     scanf("%lld",&input_registration_number);
     printf("Enter password: ");
@@ -121,9 +118,9 @@ int student_login(){
 
 
 //professor login
+char input_professor_id[50];
 int professor_login(){
     //defining data types
-    char input_professor_id[50];
     char input_professor_password[50];
     char original_professor_id[50];
     char original_professor_password[50];
