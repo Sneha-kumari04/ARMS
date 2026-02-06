@@ -670,7 +670,7 @@ void system_settings(){
         case 1:
             view_system_summary();
             break;
-        
+        case 2: reset_system_data(); break;
         case 0: return;break;
         default:printf("Invalid Input..!!\n");
             break;
@@ -711,3 +711,65 @@ void view_system_summary()
 }
 
 
+void reset_system_data(){
+
+    int choose;
+    printf("Warning: Choosing reset option will delete\nall the data stored in the ARMS sytem.\n");
+    printline();
+    printf("1. Reset\n0.Cancel reset\n");
+    printf("Do you want to reset the data(1 or 0): ");
+    scanf("%d",&choose);
+    printline();
+
+    //while(1){
+        switch (choose)
+        {
+        case 1:
+            reset_data();
+            break;
+        case 0: printf("Reset Cancelled....!!\n");
+            printline();
+            logout_to_dashboard();
+            break;
+        default:
+            printf("Invalid choice...!!\n");
+            break;
+        }
+    //}
+
+
+
+}
+
+//reset data
+void reset_data(){
+    //printing deleting data message
+    printf("Deleting data.......\n");
+    //opening admin.txt in w mode to clear it's content 
+    FILE *admin_txt = fopen("data/admin.txt","w");
+
+    FILE *student_txt = fopen("data/student.txt","w");
+
+    FILE *professor_txt = fopen("data/professor.txt","w");
+
+    FILE *professor_subjects_txt = fopen("data/professor_subjects.txt","w");
+
+    FILE *admin_credential_txt = fopen("login_credential/admin_credential.txt","w");
+
+    FILE *professor_credential_txt = fopen("login_credential/professor_credential.txt","w");
+
+    FILE *student_credential_txt = fopen("login_credential/student_credential.txt","w");
+
+    //closing file
+    fclose(admin_txt);
+    fclose(student_txt);
+    fclose(professor_txt);
+    fclose(professor_subjects_txt);
+    fclose(admin_credential_txt);
+    fclose(professor_credential_txt);
+    fclose(student_credential_txt);
+
+    //printing success message 
+    printf("Reset completed..!!\n");
+    printline();
+}

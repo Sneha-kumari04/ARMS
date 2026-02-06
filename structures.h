@@ -64,5 +64,6 @@ void view_all_professor_subject();
 //admin management
 void view_system_summary();
 void reset_system_data();
+void reset_data();
 
 #endif
