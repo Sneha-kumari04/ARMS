@@ -365,7 +365,7 @@ void add_professor(){
     printf("Enter Professor ID: ");
     scanf("%49s",new_id);
     //checking if new id exist or not
-    while (fscanf(fp, "%49s %99s %99s", id, name, designation) == 4){
+    while (fscanf(fp, "%49s %99s %99s", id, name, designation) == 3){
         if (strcmp(id,new_id)==0){
             printf("Professor ID exist.. please choose a new ID..!!\n");
             printline();
