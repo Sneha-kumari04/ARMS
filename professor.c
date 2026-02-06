@@ -26,8 +26,9 @@ void professor_dashboard(void)
         case 3:
             view_my_student();
             break;
-        case 4 : view_student_analytics(); 
-        break;
+        case 4:
+            view_student_analytics();
+            break;
         case 0:
             if (logout_to_main_menu())
                 return; // back to login
@@ -157,7 +158,7 @@ void view_my_student(void)
     }
     fclose(fp);
     return;
-} 
+}
 void View_student_analytics(void)
 {
     // define data types
@@ -165,7 +166,4 @@ void View_student_analytics(void)
     char name[100];
     char branch[50];
     char sem[50];
-    
-
 }
-
