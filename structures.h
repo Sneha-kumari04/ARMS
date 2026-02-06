@@ -1,6 +1,8 @@
 #ifndef STRUCTURE_H
 #define STRUCTURE_H
 
+//professor.c and admin.c shares their functions with each other
+
 // main.c
 void student_dashboard();
 void professor_dashboard();
@@ -21,9 +23,9 @@ void view_student_attendance();
 void view_student_sgpa_cgpa();
 
 // professor.c
+void greet_professor();
 void view_professor_profile(void);
 void view_my_subjects_and_semester(void);
-void view_my_student(void);
 void view_student_analytics(void);
 
 //utils.c
@@ -31,19 +33,18 @@ void printline();
 void logout_to_dashboard();
 int logout_to_main_menu();
 int back();
-#endif
+
 
 //global used data variables
 extern long long int input_registration_number;
 extern char input_admin_id[50];
+extern char input_professor_id[50];
 
 
 // admin.c
 void view_admin_profile();
 void student_management();
 void professor_management();
-void academic_records_control();
-void analytics_reports();
 void system_settings();
 
 //student_management
@@ -53,8 +54,15 @@ void view_all_students();
 void search_student();
 
 //professor management
-void add_new_professor();
+void add_professor();
+void assign_subject_semester();
+void search_professor();
+void search_professor_subject();
+void view_all_professors();
+void view_all_professor_subject();
 
 //admin management
 void view_system_summary();
 void reset_system_data();
+
+#endif
