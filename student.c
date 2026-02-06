@@ -9,7 +9,7 @@ void student_dashboard()
     while (1)
     {
         printline();
-        printf("STUDENT DASHBOARD\n1. View My Profile\n2. View My Branch & Semester\n3. View My attendance\n4. View My SGPA %% CGPA\n0. Logout\n");
+        printf("STUDENT DASHBOARD\n1. View My Profile\n2. View My Branch & Semester\n3. View My attendance\n4. View My SGPA & CGPA\n0. Logout\n");
         printline();
         printf("Enter Index: ");
         scanf("%d", &selected_option);

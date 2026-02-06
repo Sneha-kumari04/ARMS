@@ -5,7 +5,6 @@
 void admin_dashboard(void)
 {
     int selected_option;
-
     while(1){
         //print admin dashboard
         printline();
@@ -23,7 +22,7 @@ void admin_dashboard(void)
             break;
         case 2: student_management();break;
         case 3: professor_management(); break;
-        // case 4: analytics_reports();break;
+        case 4: view_student_analytics();break;
         case 5: system_settings();break;
         case 0: if (logout_to_main_menu())
                     return; // back to login
@@ -102,7 +101,7 @@ void student_management(){
         break;
 
         default:
-            break;
+            printf("Invalid Input..!!\n");
         }
     }
 }
@@ -214,6 +213,8 @@ void add_new_student(){
     //printing success message
     printf("Student added successfully..!!");
     printline();
+
+    logout_to_dashboard();
     
 }
 
@@ -242,7 +243,7 @@ void view_all_students(){
     }
     fclose(fp);
     printline();
-    back();
+    logout_to_dashboard();
 }
 
 //search student
@@ -302,7 +303,7 @@ void search_student()
     // closing file
     fclose(fp);
 
-    back();
+    logout_to_dashboard();
 }
 
 
@@ -310,30 +311,348 @@ void search_student()
 void professor_management(){
     int selected_option;
     while(1){
-        printf("PROFESSOR MANAGEMENT\n1. Add Professor\n2. View All Professors\n3. View Professor subject\n0. Back\n");
+        printf("PROFESSOR MANAGEMENT\n 1. Add Professor\n 2. Assign Subject & Semester\n 3. Search professor\n 4. Search Professor Subject\n 5. View All Professors\n 6. View All Professor subject\n 0. Back\n");
+        printline();
         printf("Enter index: ");
         scanf("%d",&selected_option);
+        printline();
         switch(selected_option)
         {
         case 1:
-            // add_new_professor();
+            add_professor();
             break;
-        
-
+        case 2: assign_subject_semester();break;
+        case 3: search_professor();break;
+        case 4: search_professor_subject();break;
+        case 5: view_all_professors();break;
+        case 6: view_all_professor_subject();break;
+        case 0: return; break; 
         
         default:
-            break;
+            printf("Invalid Input...!!\n");
+            printline();
         }
 
     }
 }
 
 //add new professor
-// void add_new_professor(){
-//     printf("will add later\n");
-// }
+void add_professor(){
+    //data types for fetching from txt file
+    char id[50];
+    char name[100];
+    char designation[100];
 
-// void view_professor_subject()
+    //credential
+    char password[50];
+
+    //data type to take input for new professor
+    char new_id[50];
+    char new_name[100];
+    char new_designation[100];
+
+    //opening file in read mode
+    FILE *fp;
+    fp = fopen("data/professor.txt","r");
+
+    //checking if file exist or not
+    if(fp == NULL){
+        printf("File didn't exist\n");
+        printline();
+    }
+    //Taking input for new professor
+    printf("New Professor Form\n");
+    printf("Enter Professor ID: ");
+    scanf("%49s",new_id);
+    //checking if new id exist or not
+    while (fscanf(fp, "%49s %99s %99s", id, name, designation) == 4){
+        if (strcmp(id,new_id)==0){
+            printf("Professor ID exist.. please choose a new ID..!!\n");
+            printline();
+            fclose(fp);
+            return;
+        }
+    }
+    fclose(fp);
+    //taking input for professor.txt
+    printf("Enter Professor Name: ");
+    scanf("%99s",new_name);
+    
+    printf("Enter Professor Designation: ");
+    scanf("%99s",new_designation);
+
+    //professor credential
+    printf("Enter Password for the new Professor: ");
+    scanf("%49s",password);
+    printline();
+
+    //opening file as append mode
+    fp = fopen("data/professor.txt","a");
+    //checking if file exist or not
+    if (fp == NULL){
+        printf("File didn't exist...!!\n");
+        fclose(fp);
+        printline();
+        return;
+    }
+    //storing file in professor.txt
+    fprintf(fp,"%s %s %s\n",new_id,new_name,new_designation);
+    //closing file
+    fclose(fp);
+
+    //opening credential file as append mode
+    fp = fopen("login_credential/professor_credential.txt","a");
+    //checking if file exist or not 
+    if (fp == NULL){
+        printf("File didn't exist...!!\n");
+        printline();
+        fclose(fp);
+        return;
+    }
+    //storing data in professor_credential.txt
+    fprintf(fp,"%s %s\n",new_id,password);
+    //closing file
+    fclose(fp);
+
+    printf("Professor added successfully..!!\n");
+    printline();
+    logout_to_dashboard();
+
+}
+
+
+void assign_subject_semester(){
+    //defining data type to scan from original file
+    char id[50];
+    char name[100];
+    char designation[100];
+
+    //defining data types for taking input
+    char new_id[50];
+    char new_subject[50];
+    char new_subject_code[50];
+    int new_sem;
+    char new_branch[100];
+
+    //opening file as read mode
+    FILE *fp;
+    fp = fopen("data/professor.txt","r");
+
+    //checking if file exist
+    if(fp == NULL){
+        printf("File didn't exist\n");
+        printline();
+    }
+
+    //Taking input for assigning subject and sem
+    printf("Assigning subject to new Professor\n");
+    printf("Enter Professor ID: ");
+    scanf("%49s",new_id);
+    //checking if new id exist or not
+    while (fscanf(fp, "%49s %99s %99s", id, name, designation) == 4){
+        if (strcmp(id,new_id)==0){
+            printf("This professor already have assigned subjects.\n");
+            printline();
+            fclose(fp);
+            return;
+        }
+    }
+    fclose(fp);
+
+    //taking remaining input
+    printf("Enter Professor Subject: ");
+    scanf("%49s",new_subject);
+    printf("Enter subject code: ");
+    scanf("%49s",new_subject_code);
+    printf("Enter new sem(1-8): ");
+    scanf("%d",&new_sem);
+    if (new_sem>8 || new_sem < 1){
+        printf("Invalid semester...Please Retry..!!\n");
+        printline();
+        fclose(fp);
+        return;
+    }
+    printf("Enter branch: ");
+    scanf("%99s",new_branch);
+    printline();
+
+    //opening file in append mode 
+    fp = fopen("data/professor_subjects.txt","a");
+    //checking if file exist or not
+    if(fp == NULL){
+        printf("File didn't exist...!!\n");
+        fclose(fp);
+        printline();
+        return;
+    }
+    //storing data in professor subject file
+    fprintf(fp,"%s %s %s %d %s\n",new_id,new_subject,new_subject_code,new_sem,new_branch);
+    //closing file
+    fclose(fp);
+
+    printf("Professor subject assigned successfully...!!\n");
+    logout_to_dashboard();
+}
+
+
+void search_professor(){
+    char professor_id[50];
+    char id[50];
+    char name[100];
+    char designation[100];
+    int found = 0;
+    FILE *fp = fopen("data/professor.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Error: file not found\n");
+        printline();
+        return;
+    }
+    printf("Enter Professor ID: ");
+    scanf("%49s", professor_id);
+    printline();
+
+    while (fscanf(fp, "%49s %99s %99s", id, name, designation) == 3)
+    {
+        if (strcmp(id, professor_id) == 0)
+        {
+            printf("Professor ID = %s\n", id);
+            printf("Name         = %s\n", name);
+            printf("Designation  = %s\n", designation);
+            found = 1;
+            printline();
+            break;
+        }
+    }
+    if (!found)
+    {
+        printf("Professor not found\n");
+        printline();
+    }
+    fclose(fp);
+    logout_to_dashboard();
+}
+
+
+void search_professor_subject(){
+    char professor_id[100];
+    char id[50];
+    char subject[50];
+    char subject_code[100];
+    int sem;
+    char department[100];
+    int found = 0;
+    FILE *fp = fopen("data/professor_subjects.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Error: file not found\n");
+        printline();
+        return;
+    }
+    printf("Enter Professor ID: ");
+    scanf("%99s", professor_id);
+    printline();
+
+    while (fscanf(fp, "%49s %49s %99s %d %99s", id, subject, subject_code, &sem, department) == 5)
+    {
+        if (strcmp(id, professor_id) == 0)
+        {
+            printf("ID:          = %s\n",professor_id);
+            printf("Subject Name = %s\n", subject);
+            printf("Subject Code = %s\n", subject_code);
+            printf("Sem          = %d\n", sem);
+            printf("Department   = %s\n", department);
+            found = 1;
+            printline();
+            break;
+        }
+    }
+    if (!found)
+    {
+        printf("\n Data not found\n");
+        printline();
+    }
+    fclose(fp);
+    logout_to_dashboard();
+}
+
+
+void view_all_professors(){
+    //defining data types to scan from file 
+    char id[50];
+    char name[100];
+    char designation[100];
+    int found = 0;
+
+    //opening file
+    FILE *fp = fopen("data/professor.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Error: file not found\n");
+        printline();
+        return;
+    }
+
+    //searching and printing the data
+    while (fscanf(fp, "%49s %99s %99s", id, name, designation) == 3)
+    {
+        printf("Professor ID = %s\n", id);
+        printf("Name         = %s\n", name);
+        printf("Designation  = %s\n", designation);
+        printline();
+        found = 1;
+    }
+
+   // not found message print
+    if (!found)
+    {
+        printf("\nProfessor not found\n");
+        printline();
+    }
+  //  closing file
+    fclose(fp);
+    logout_to_dashboard();
+}
+
+
+//view all assigned subjects
+void view_all_professor_subject(){
+    //definig data types to store scanned data from file
+    char id[50];
+    char subject[100];
+    char subject_code[50];
+    char sem[50];
+    char branch[100];
+    int found = 0;
+    //opening file 
+    FILE *fp = fopen("data/professor_subjects.txt", "r");
+    //checking if file exist
+    if (fp == NULL)
+    {
+        printf("Error: file not found\n");
+        printline();
+        return;
+    }
+
+    while (fscanf(fp, "%49s %99s %49s %49s %99s",id,subject,subject_code, sem, branch) == 5)
+    {
+        printf("Professor ID = %s\n", id);
+        printf("Subject      = %s\n", subject);
+        printf("Subject code = %s\n", subject_code);
+        printf("Semester     = %s\n", sem);
+        printf("Branch       = %s\n", branch);
+        found = 1;
+        printline();
+    }
+    if (!found)
+    {
+        printf("\nProfessor not found\n");
+        printline();
+    }
+    fclose(fp);
+    logout_to_dashboard();
+}
+
 
 
 //system setting
@@ -351,9 +670,9 @@ void system_settings(){
         case 1:
             view_system_summary();
             break;
-        
+        case 2: reset_system_data(); break;
         case 0: return;break;
-        default:
+        default:printf("Invalid Input..!!\n");
             break;
         }
     }
@@ -388,9 +707,69 @@ void view_system_summary()
     printf("- Role-based dashboards\n");
 
     printline();
-    back();
+    logout_to_dashboard();
 }
 
+
 void reset_system_data(){
-    printf("As it's a dangerous function i'll add it at the end!!\n");
+
+    int choose;
+    printf("Warning: Choosing reset option will delete\nall the data stored in the ARMS sytem.\n");
+    printline();
+    printf("1. Reset\n0.Cancel reset\n");
+    printf("Do you want to reset the data(1 or 0): ");
+    scanf("%d",&choose);
+    printline();
+
+    //while(1){
+        switch (choose)
+        {
+        case 1:
+            reset_data();
+            break;
+        case 0: printf("Reset Cancelled....!!\n");
+            printline();
+            logout_to_dashboard();
+            break;
+        default:
+            printf("Invalid choice...!!\n");
+            break;
+        }
+    //}
+
+
+
+}
+
+//reset data
+void reset_data(){
+    //printing deleting data message
+    printf("Deleting data.......\n");
+    //opening admin.txt in w mode to clear it's content 
+    FILE *admin_txt = fopen("data/admin.txt","w");
+
+    FILE *student_txt = fopen("data/student.txt","w");
+
+    FILE *professor_txt = fopen("data/professor.txt","w");
+
+    FILE *professor_subjects_txt = fopen("data/professor_subjects.txt","w");
+
+    FILE *admin_credential_txt = fopen("login_credential/admin_credential.txt","w");
+
+    FILE *professor_credential_txt = fopen("login_credential/professor_credential.txt","w");
+
+    FILE *student_credential_txt = fopen("login_credential/student_credential.txt","w");
+
+    //closing file
+    fclose(admin_txt);
+    fclose(student_txt);
+    fclose(professor_txt);
+    fclose(professor_subjects_txt);
+    fclose(admin_credential_txt);
+    fclose(professor_credential_txt);
+    fclose(student_credential_txt);
+
+    //printing success message 
+    printf("Reset completed..!!\n");
+    printline();
 }

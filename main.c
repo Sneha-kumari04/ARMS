@@ -4,7 +4,8 @@
 
 
 int main(void){
-
+    printline();
+    printf("Welcome to ARMS\n");
     int selected_option = 3,is_login = 0;;
     while (1)
     {
@@ -17,8 +18,9 @@ int main(void){
 
         printf("Enter Index: ");
         scanf("%d", &selected_option);
-        while (getchar() != '\n')
-            ; // clear buffer
+        printline();
+        // while (getchar() != '\n')
+        //     ; // clear buffer
 
         switch (selected_option)
         {
@@ -45,6 +47,7 @@ int main(void){
             exit(0);
         default:
             printf("Invalid choice!\n");
+            printline();
         }
     }
 }
