@@ -1,15 +1,21 @@
 CC = gcc
-CFLAGS = -Wall
-
 SRC = main.c student.c admin.c utils.c professor.c login.c
-OUT = arms
+
+ifeq ($(OS),Windows_NT)
+	OUT = arms.exe
+	RM = del
+	RUN = $(OUT)
+else
+	OUT = arms
+	RM = rm -f
+	RUN = ./$(OUT)
+endif
 
 all:
-	$(CC) $(CFLAGS) $(SRC) -o $(OUT)
+	$(CC) $(SRC) -o $(OUT)
 
 run: all
-	./$(OUT)
+	$(RUN)
 
 clean:
-	rm -f $(OUT)
-
+	$(RM) $(OUT)
